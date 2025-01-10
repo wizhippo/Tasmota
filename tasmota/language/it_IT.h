@@ -1313,4 +1313,10 @@
 #define D_CHARGING                        "In carica"
 #define D_CAPACITY                        "Capacità"
 
+// xdrv_128_dsc_interface.ino
+#define D_GPIO_DSC_CLOCK "DSC Clock"
+#define D_GPIO_DSC_READ "DSC Read"
+#define D_GPIO_DSC_WRITE "DSC Write"
+#define D_GPIO_DSC_RELAY "DSC Relay"
+
 #endif  // _LANGUAGE_IT_IT_H_

@@ -229,6 +229,7 @@ enum UserSelectablePins {
   GPIO_I2C_SER_TX, GPIO_I2C_SER_RX,     // I2C via Serial using SC18IM704 protocol (xdrv74)
   GPIO_TM1640CLK, GPIO_TM1640DIN,       // TM1640 (16 x seven-segment LED controler)
   GPIO_TWAI_TX, GPIO_TWAI_RX, GPIO_TWAI_BO, GPIO_TWAI_CLK,  // ESP32 TWAI serial interface
+  GPIO_DSC_CLOCK, GPIO_DSC_READ, GPIO_DSC_WRITE, GPIO_DSC_RELAY,  // DSC interface support
   GPIO_SENSOR_END };
 
 // Error as warning to rethink GPIO usage with max 2045
@@ -504,7 +505,8 @@ const char kSensorNames[] PROGMEM =
   D_SENSOR_LD2410S_TX "|" D_SENSOR_LD2410S_RX "|"
   D_SENSOR_I2C_SER_TX "|" D_SENSOR_I2C_SER_RX "|"
   D_SENSOR_TM1640_CLK "|" D_SENSOR_TM1640_DIN "|"
-  D_SENSOR_TWAI_TX "|" D_SENSOR_TWAI_RX "|" D_SENSOR_TWAI_BO "|" D_SENSOR_TWAI_CLK
+  D_SENSOR_TWAI_TX "|" D_SENSOR_TWAI_RX "|" D_SENSOR_TWAI_BO "|" D_SENSOR_TWAI_CLK "|"
+  D_GPIO_DSC_CLOCK "|" D_GPIO_DSC_READ "|" D_GPIO_DSC_WRITE "|" D_GPIO_DSC_RELAY
   ;
 
 const char kSensorNamesFixed[] PROGMEM =
@@ -1246,6 +1248,13 @@ const uint16_t kGpioNiceList[] PROGMEM = {
 #ifdef USE_PIPSOLAR
   AGPIO(GPIO_PIPSOLAR_TX),                       // pipsolar inverter Serial interface
   AGPIO(GPIO_PIPSOLAR_RX),                       // pipsolar inverter Serial interface
+#endif
+
+#ifdef USE_DSC_INTERFACE
+  AGPIO(GPIO_DSC_CLOCK),
+  AGPIO(GPIO_DSC_READ),
+  AGPIO(GPIO_DSC_WRITE),
+  AGPIO(GPIO_DSC_RELAY),
 #endif
 
 /*-------------------------------------------------------------------------------------------*\
